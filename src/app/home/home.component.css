@@ -169,9 +169,6 @@ li:hover {
 }
 
 
-
-
-
 /* 
 //sobre mi  */
 
@@ -267,12 +264,6 @@ li:hover {
     text-align: right;
   }
 
-
-
-  /* Estilos del navbar flotante */
-
-
-  
   @media screen and (max-width: 768px) {
     .timeline::before {
         display: none;
@@ -302,4 +293,46 @@ li:hover {
         text-align: left;
     }
   }
+  
+
+  /* section mis proyectos */
+
+  .proyectos_cuerpo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    align-items: center; 
+    justify-content: center;
+    gap: 20px; 
+    min-height: 100vh;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    background-color: #000000ee;
+    color: #fff;
+    text-align: center; 
+}
+
+.proyectos_cuerpo h1 {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 1px 5px 6px rgba(231, 83, 224, 0.5);
+    grid-column: span 3;
+}
+
+/* Asegurar que los elementos de los proyectos estén centrados */
+.proyectos_cuerpo > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto; 
+}
+
+
+  
+    
   
