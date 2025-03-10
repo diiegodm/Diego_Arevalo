@@ -1,125 +1,127 @@
-<body>
-  <section class="landing-section">
-    <div class="landing-container">
-      <img src="/mia.png" alt="Persona con sudadera" class="landing-image">
-      <h1 class="landing-title">WORK FOR IT...</h1>
-      <div class="card-container">
-        <div class="card"><a href="#sobre-mi">Sobre mi</a></div>
-        <div class="card"><a href="#mis-proyectos">Mis proyectos</a></div>
-        <div class="card"><a href="#otras-curiosidades">Otras curiosidades</a></div>
+<section class="landing-section">
+  <div class="landing-container">
+    <img src="/mia.png" alt="Persona con sudadera" class="landing-image">
+    <h1 class="landing-title">WORK FOR IT...</h1>
+    <div class="card-container">
+      <div class="card"><a href="#sobre-mi">Sobre mi</a></div>
+      <div class="card"><a href="#mis-proyectos">Mis proyectos</a></div>
+      <div class="card"><a href="#otras-curiosidades">Otras curiosidades</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Navbar flotante -->
+<nav class="navbar">
+  <ul>
+    <li><a href="#sobre-mi">Sobre mi</a></li>
+    <li><a href="#mis-proyectos">Mis proyectos</a></li>
+    <li><a href="#otras-curiosidades">Otras curiosidades</a></li>
+  </ul>
+
+</nav>
+
+
+<section id="sobre-mi" class="body">
+
+  <section class="timeline">
+    <h1>Sobre mi</h1>
+    <div class="timeline-item">
+      <div class="timeline-date"></div>
+      <div class="timeline-content">
+        <h3>Full Stack Developer (2025)</h3>
+        <p>Recibí mi grado como Full Stack Developer en febrero de 2025, adquiriendo bases en tecnologías como
+          JavaScript, Angular, HTML y CSS.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Trabajo en restaurante (2021 - 2024)</h3>
+        <p>Trabajé en un restaurante en Estados Unidos, Texas Roadhouse, en la ciudad de Bloomington, Indiana. Esta
+          experiencia me permitió trabajar con grupos multiculturales y mejorar mis habilidades de adaptación a
+          equipos
+          de trabajo.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Jefe de cuadrilla de obra (2020 - 2021)</h3>
+        <p>Trabajar como jefe de cuadrillas en la construcción de carreteras me ayudó a desarrollar mis habilidades de
+          liderazgo y gestión de personal, tanto calificado como no calificado.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Título de Ingeniero Civil (2020 - 2024)</h3>
+        <p>En 2024, recibí mi grado como Ingeniero Civil en la Universidad Francisco de Paula Santander, Cúcuta,
+          Colombia.</p>
       </div>
     </div>
   </section>
+</section>
 
-  <!-- Navbar flotante -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="#sobre-mi">Sobre mi</a></li>
-      <li><a href="#mis-proyectos">Mis proyectos</a></li>
-      <li><a href="#otras-curiosidades">Otras curiosidades</a></li>
-    </ul>
+<section id="mis-proyectos">
 
-  </nav>
-  
+  <div class="proyectos_cuerpo">
+    <h1 class="text-white">Mis proyectos</h1>
 
-  <section id="sobre-mi" class="body">
+    @for(proyecto of proyectos; track $index){
+    <div class="flex items-center bg-black shadow-lg rounded-2xl p-6 w-full max-w-3xl">
+      <!-- Imagen más grande -->
+      <img [src]="proyecto.imagenes[0]" alt="Imagen del proyecto" class="w-40 h-40 object-cover rounded-xl">
 
-    <section class="timeline">
-        <h1>Sobre mi</h1>
-        <div class="timeline-item">
-          <div class="timeline-date"></div>
-          <div class="timeline-content">
-            <h3>Full Stack Developer (2025)</h3>
-            <p>Recibí mi grado como Full Stack Developer en febrero de 2025, adquiriendo bases en tecnologías como
-              JavaScript, Angular, HTML y CSS.</p>
-          </div>
-        </div>
-    
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Trabajo en restaurante (2021 - 2024)</h3>
-            <p>Trabajé en un restaurante en Estados Unidos, Texas Roadhouse, en la ciudad de Bloomington, Indiana. Esta
-              experiencia me permitió trabajar con grupos multiculturales y mejorar mis habilidades de adaptación a equipos
-              de trabajo.</p>
-          </div>
-        </div>
-    
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Jefe de cuadrilla de obra (2020 - 2021)</h3>
-            <p>Trabajar como jefe de cuadrillas en la construcción de carreteras me ayudó a desarrollar mis habilidades de
-              liderazgo y gestión de personal, tanto calificado como no calificado.</p>
-          </div>
-        </div>
-    
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Título de Ingeniero Civil (2020 - 2024)</h3>
-            <p>En 2024, recibí mi grado como Ingeniero Civil en la Universidad Francisco de Paula Santander, Cúcuta,
-              Colombia.</p>
-          </div>
-        </div>
-    </section>
-  </section>
 
-  <section id="mis-proyectos">
+      <!-- Contenido -->
+      <div class="ml-6 flex-1">
+        <h3 class="text-2xl font-bold text-white">{{proyecto.titulo}}</h3>
+        <p class="text-white text-base mt-2">
+          {{ proyecto.descripcion.length > 100 ? proyecto.descripcion.slice(0, 100) + "..." : proyecto.descripcion }}
+        </p>
 
-    <div class="proyectos_cuerpo">
+        <p class="text-white text-base mt-2">
+          <span class="text-2xl font-bold text-white">Tecnologías:</span> {{proyecto.Tecnologias}}
+        </p>
+        <button class="mt-4 bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-800 transition"
+          (click)="evento(proyecto)">
+          Ver Detalles
+        </button>
 
-      <h1>Mis proyectos</h1>
-      
-      <div class="flex flex-col rounded-2xl w-80 bg-[#ffffff] shadow-xl">
-        <figure class="flex justify-center items-center rounded-2xl">
-            <img src="https://tailwind-generator.b-cdn.net/images/card-generator/tailwind-card-generator-card-preview.png" alt="Card Preview" class="rounded-t-2xl">
-        </figure>
-        <!---->
-        <div class="flex flex-col p-8">
-            <div class="text-xl  uppercase  text-[#030303] pb-6">cafe blog</div>
-            <div class=" text-lg   text-[#374151]">Proyecto realizado solo con html y css, pagina estatica.
-              tecnologisa usadas:
-            html y css </div>
-            <div class="flex justify-end pt-6">
-                <button class="bg-[#7e22ce] text-[#ffffff] w-full font-bold text-base  p-3 rounded-lg hover:bg-purple-800 active:scale-95 transition-transform transform">ver detalles</button>
-            </div>
-            <!---->
-        </div>
-    </div>
 
-    <div class="flex flex-col rounded-2xl w-80 bg-[#ffffff] shadow-xl">
-      <figure class="flex justify-center items-center rounded-2xl">
-          <img src="https://tailwind-generator.b-cdn.net/images/card-generator/tailwind-card-generator-card-preview.png" alt="Card Preview" class="rounded-t-2xl">
-      </figure>
-      <!---->
-      <div class="flex flex-col p-8">
-          <div class="text-xl  uppercase  text-[#030303] pb-6">Generator</div>
-          <div class=" text-lg   text-[#374151]">Leverage a graphical editor to create, design and customize beautiful web components.</div>
-          <div class="flex justify-end pt-6">
-              <button class="bg-[#7e22ce] text-[#ffffff] w-full font-bold text-base  p-3 rounded-lg hover:bg-purple-800 active:scale-95 transition-transform transform">Try it out!</button>
-          </div>
-          <!---->
       </div>
+    </div>
+    }
   </div>
 
 
-  <div class="flex flex-col rounded-2xl w-80 bg-[#ffffff] shadow-xl">
-    <figure class="flex justify-center items-center rounded-2xl">
-        <img src="https://tailwind-generator.b-cdn.net/images/card-generator/tailwind-card-generator-card-preview.png" alt="Card Preview" class="rounded-t-2xl">
-    </figure>
-    <!---->
-    <div class="flex flex-col p-8">
-        <div class="text-xl  uppercase  text-[#030303] pb-6">Generator</div>
-        <div class=" text-lg   text-[#374151]">Leverage a graphical editor to create, design and customize beautiful web components.</div>
-        <div class="flex justify-end pt-6">
-            <button class="bg-[#7e22ce] text-[#ffffff] w-full font-bold text-base  p-3 rounded-lg hover:bg-purple-800 active:scale-95 transition-transform transform">Try it out!</button>
+</section>
+
+<section>
+  @if(isOpen){
+
+  
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <div class="modal-body">
+          <div class="carousel">
+            <div class="carousel-images">
+              @for(Imagen of selectevent?.imagenes; track $index){
+                <img [src]="Imagen" [class.active]="$index === currentImageIndex" class="carousel-image">
+            }
+            </div>
+            <button (click)="prevImage()" class="prev">&#10094;</button>
+            <button (click)="nextImage()" class="next">&#10095;</button>
+          </div>
+          <div class="content">
+            <h2>{{ selectevent?.titulo }}</h2>
+            <p>{{ selectevent?.descripcion }}</p>
+          </div>
         </div>
-        <!---->
+      </div>
     </div>
-</div>
-      
+ 
+  }
 
-
-    </div>
-  </section>
-</body>
-
-
+</section>
