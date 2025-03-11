@@ -1,10 +1,15 @@
 
+
+.cuerpo_page{
+  background-color: #000000d2;
+}
+
 .landing-section {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(0, 0, 0);
+   
     padding: 0 20px;
 position: relative;
 }
@@ -137,35 +142,42 @@ position: absolute;
 /* navegacion */
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: #0f0f0fbe;
-    color: white;
-    border-bottom: 1px solid #030303;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #0f0f0fbe;
+  color: white;
+  border-bottom: 1px solid #030303;
 }
 
-
-
-ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    margin-right: 20px;
-    justify-content: space-between;
-    width: 50%;
-    margin: auto;
-    font-size: 20px;
+.hamburger {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
-li:hover {
-    color: #e753e0;
+/* Oculta el menú en móviles por defecto */
+.menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: #0f0f0f;
+  text-align: center;
+  padding: 15px 0;
+}
+
+/* Alineación en escritorio */
+@media (min-width: 768px) {
+  .menu {
+    position: static;
+    background: none;
+    padding: 0;
+  }
 }
 
 
@@ -175,7 +187,7 @@ li:hover {
 
 .body {
     font-family: Arial, sans-serif;
-    background-color: #000000ee;
+ 
     color: #fff;
     display: flex;
     justify-content: center;
@@ -209,7 +221,7 @@ li:hover {
     top: 0;
     left: 50%;
     width: 4px;
-    height: 100%;
+    height: 90%;
     background: #f5f3f3;
     transform: translateX(-50%);
   }
@@ -303,10 +315,19 @@ li:hover {
     margin: auto;
     padding: 20px;
     position: relative;
-    background-color: #000000ee;
     color: #fff;
-    text-align: center; 
+    text-align: center;
 }
+@media screen and (max-width: 768px) {
+    .proyectos_cuerpo {
+       display: flex;
+       flex-direction: column;
+    }
+}
+
+.text-white{
+  margin: 10px;
+      }
 
 .proyectos_cuerpo h1 {
     text-align: center;
@@ -371,14 +392,14 @@ li:hover {
   }
   
   .carousel-image {
-    width: 100%; /* Ancho completo del contenedor */
-    height: 300px; /* Altura fija deseada */
-    object-fit: cover; /* Ajusta la imagen para cubrir el área sin distorsionarse */
-    display: none; /* Ocultar por defecto */
+    width: 100%; 
+    height: 300px; 
+    object-fit: cover; 
+    display: none; 
   }
   
   .carousel-image.active {
-    display: block; /* Mostrar solo la imagen activa */
+    display: block; 
   }
   
   .prev, .next {
@@ -420,3 +441,62 @@ li:hover {
     top: 100px;  
     right: 100px; 
 }
+
+/* footer */
+footer {
+  background-color: #0f0f0fbe;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+  color: white;
+  padding: 20px;
+  border-top: 1px solid #030303;
+}
+
+/* Estilos para la columna izquierda */
+.footer-left {
+  font-size: 18px;
+}
+
+/* Estilos para la columna derecha */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: #808080;
+}
+
+/* Media Query para móviles */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-right {
+    align-items: center;
+  }
+}
+
+
