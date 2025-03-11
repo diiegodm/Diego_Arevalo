@@ -1,127 +1,188 @@
-<section class="landing-section">
-  <div class="landing-container">
-    <img src="/mia.png" alt="Persona con sudadera" class="landing-image">
-    <h1 class="landing-title">WORK FOR IT...</h1>
-    <div class="card-container">
-      <div class="card"><a href="#sobre-mi">Sobre mi</a></div>
-      <div class="card"><a href="#mis-proyectos">Mis proyectos</a></div>
-      <div class="card"><a href="#otras-curiosidades">Otras curiosidades</a></div>
-    </div>
-  </div>
-</section>
 
-<!-- Navbar flotante -->
-<nav class="navbar">
-  <ul>
-    <li><a href="#sobre-mi">Sobre mi</a></li>
-    <li><a href="#mis-proyectos">Mis proyectos</a></li>
-    <li><a href="#otras-curiosidades">Otras curiosidades</a></li>
-  </ul>
-
-</nav>
-
-
-<section id="sobre-mi" class="body">
-
-  <section class="timeline">
-    <h1>Sobre mi</h1>
-    <div class="timeline-item">
-      <div class="timeline-date"></div>
-      <div class="timeline-content">
-        <h3>Full Stack Developer (2025)</h3>
-        <p>Recibí mi grado como Full Stack Developer en febrero de 2025, adquiriendo bases en tecnologías como
-          JavaScript, Angular, HTML y CSS.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>Trabajo en restaurante (2021 - 2024)</h3>
-        <p>Trabajé en un restaurante en Estados Unidos, Texas Roadhouse, en la ciudad de Bloomington, Indiana. Esta
-          experiencia me permitió trabajar con grupos multiculturales y mejorar mis habilidades de adaptación a
-          equipos
-          de trabajo.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>Jefe de cuadrilla de obra (2020 - 2021)</h3>
-        <p>Trabajar como jefe de cuadrillas en la construcción de carreteras me ayudó a desarrollar mis habilidades de
-          liderazgo y gestión de personal, tanto calificado como no calificado.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>Título de Ingeniero Civil (2020 - 2024)</h3>
-        <p>En 2024, recibí mi grado como Ingeniero Civil en la Universidad Francisco de Paula Santander, Cúcuta,
-          Colombia.</p>
+<section class="cuerpo_page">
+  <section id="inicio" class="landing-section">
+    <div class="landing-container">
+      <img src="/mia.png" alt="Persona con sudadera" class="landing-image">
+      <h1 class="landing-title">WORK FOR IT...</h1>
+      <div class="card-container">
+       
+        <div class="card"><a href="#sobre-mi">Sobre mi</a></div>
+        <div class="card"><a href="#mis-proyectos">Mis proyectos</a></div>
+        <div class="card"><a href="#otras-curiosidades">Otras curiosidades</a></div>
       </div>
     </div>
   </section>
-</section>
-
-<section id="mis-proyectos">
-
-  <div class="proyectos_cuerpo">
-    <h1 class="text-white">Mis proyectos</h1>
-
-    @for(proyecto of proyectos; track $index){
-    <div class="flex items-center bg-black shadow-lg rounded-2xl p-6 w-full max-w-3xl">
-      <!-- Imagen más grande -->
-      <img [src]="proyecto.imagenes[0]" alt="Imagen del proyecto" class="w-40 h-40 object-cover rounded-xl">
-
-
-      <!-- Contenido -->
-      <div class="ml-6 flex-1">
-        <h3 class="text-2xl font-bold text-white">{{proyecto.titulo}}</h3>
-        <p class="text-white text-base mt-2">
-          {{ proyecto.descripcion.length > 100 ? proyecto.descripcion.slice(0, 100) + "..." : proyecto.descripcion }}
-        </p>
-
-        <p class="text-white text-base mt-2">
-          <span class="text-2xl font-bold text-white">Tecnologías:</span> {{proyecto.Tecnologias}}
-        </p>
-        <button class="mt-4 bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-800 transition"
-          (click)="evento(proyecto)">
-          Ver Detalles
-        </button>
-
-
-      </div>
-    </div>
-    }
-  </div>
-
-
-</section>
-
-<section>
-  @if(isOpen){
-
   
-    <div class="modal">
-      <div class="modal-content">
-        <span class="close" (click)="closeModal()">&times;</span>
-        <div class="modal-body">
-          <div class="carousel">
-            <div class="carousel-images">
-              @for(Imagen of selectevent?.imagenes; track $index){
-                <img [src]="Imagen" [class.active]="$index === currentImageIndex" class="carousel-image">
-            }
+  <!-- Navbar flotante -->
+  <header class="navbar">
+    <div class="container mx-auto flex justify-between items-center px-4 py-3">
+      <a href="#" class="text-white text-2xl font-bold">Mi Portafolio</a>
+  
+      <!-- Botón Hamburguesa -->
+      <button (click)="toggleMenu()" class="hamburger md:hidden">
+        ☰
+      </button>
+  
+      <!-- Menú -->
+      <nav [ngClass]="{'hidden': !menuOpen, 'flex': menuOpen}" class="menu md:flex md:items-center">
+        <ul class="flex flex-col md:flex-row md:gap-6 text-lg">
+          <li><a href="#inicio" (click)="closeMenu()">Inicio</a></li>
+          <li><a href="#sobre-mi" (click)="closeMenu()">Sobre mí</a></li>
+          <li><a href="#mis-proyectos" (click)="closeMenu()">Mis proyectos</a></li>
+          <li><a href="#otras-curiosidades" (click)="closeMenu()">Otras curiosidades</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  
+  
+  
+  <section id="sobre-mi" class="body">
+  
+    <section class="timeline">
+      <h1>Sobre mi</h1>
+      <div class="timeline-item">
+        <div class="timeline-date"></div>
+        <div class="timeline-content">
+          <h3>Full Stack Developer (2025)</h3>
+          <p>Recibí mi grado como Full Stack Developer en febrero de 2025, adquiriendo bases en tecnologías como
+            JavaScript, Angular, HTML y CSS.</p>
+        </div>
+      </div>
+  
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Trabajo en restaurante (2021 - 2024)</h3>
+          <p>Trabajé en un restaurante en Estados Unidos, Texas Roadhouse, en la ciudad de Bloomington, Indiana. Esta
+            experiencia me permitió trabajar con grupos multiculturales y mejorar mis habilidades de adaptación a
+            equipos
+            de trabajo.</p>
+        </div>
+      </div>
+  
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Jefe de cuadrilla de obra (2020 - 2021)</h3>
+          <p>Trabajar como jefe de cuadrillas en la construcción de carreteras me ayudó a desarrollar mis habilidades de
+            liderazgo y gestión de personal, tanto calificado como no calificado.</p>
+        </div>
+      </div>
+  
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Título de Ingeniero Civil (2016 - 2020)</h3>
+          <p>En 2024, recibí mi grado como Ingeniero Civil en la Universidad Francisco de Paula Santander, Cúcuta,
+            Colombia.</p>
+        </div>
+      </div>
+    </section>
+  </section>
+  
+  <section id="mis-proyectos">
+  
+    <div class="proyectos_cuerpo">
+      <h1 class="text-white">Mis proyectos</h1>
+  
+      @for(proyecto of proyectos; track $index){
+      <div class="flex items-center bg-black shadow-lg rounded-2xl p-6 w-full max-w-3xl">
+        <!-- Imagen más grande -->
+        <img [src]="proyecto.imagenes[0]" alt="Imagen del proyecto" class="w-40 h-40 object-cover rounded-xl">
+  
+  
+        <!-- Contenido -->
+        <div class="ml-6 flex-1">
+          <h3 class="text-2xl font-bold text-white">{{proyecto.titulo}}</h3>
+          <p class="text-white text-base mt-2">
+            {{ proyecto.descripcion.length > 100 ? proyecto.descripcion.slice(0, 100) + "..." : proyecto.descripcion }}
+          </p>
+  
+          <p class="text-white text-base mt-2">
+            <span class="text-2xl font-bold text-white">Tecnologías:</span> {{proyecto.Tecnologias}}
+          </p>
+          <button class="mt-4 bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-800 transition"
+            (click)="evento(proyecto)">
+            Ver Detalles
+          </button>
+  
+  
+        </div>
+      </div>
+      }
+    </div>
+  
+  
+  </section>
+  
+  <section>
+    @if(isOpen){
+  
+    
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close" (click)="closeModal()">&times;</span>
+          <div class="modal-body">
+            <div class="carousel">
+              <div class="carousel-images">
+                @for(Imagen of selectevent?.imagenes; track $index){
+                  <img [src]="Imagen" [class.active]="$index === currentImageIndex" class="carousel-image">
+              }
+              </div>
+              <button (click)="prevImage()" class="prev">&#10094;</button>
+              <button (click)="nextImage()" class="next">&#10095;</button>
             </div>
-            <button (click)="prevImage()" class="prev">&#10094;</button>
-            <button (click)="nextImage()" class="next">&#10095;</button>
-          </div>
-          <div class="content">
-            <h2>{{ selectevent?.titulo }}</h2>
-            <p>{{ selectevent?.descripcion }}</p>
+            <div class="content">
+              <h2>{{ selectevent?.titulo }}</h2>
+              <p>{{ selectevent?.descripcion }}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
- 
-  }
+   
+    }
+  
+  </section>
+  
+  <footer >
+    <div class="footer">
+      <!-- Columna Izquierda -->
+      <div class="footer-left">
+          <p>© Diego Arevalo</p>
+      </div>
+  
+      <!-- Columna Derecha -->
+      <div class="footer-right">
+          <h3>Contacto:</h3>
+  
+          <div class="contact-item">
+              <!-- Icono Teléfono -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 7.317 5.928 13.25 13.25 13.25.874 0 1.727-.074 2.55-.215a2.25 2.25 0 0 0 1.845-2.104l.259-3.127a2.25 2.25 0 0 0-1.487-2.24l-2.048-.683a2.25 2.25 0 0 0-2.767 1.14l-.574 1.166a9.042 9.042 0 0 1-3.626-3.626l1.166-.574a2.25 2.25 0 0 0 1.14-2.767l-.683-2.048a2.25 2.25 0 0 0-2.24-1.487L6.32 2.29A2.25 2.25 0 0 0 4.216 4.134 16.623 16.623 0 0 0 2.25 6.75z"/>
+              </svg>
+              <span>+34 722120969</span>
+          </div>
+  
+          <div class="contact-item">
+              <!-- Icono GitHub -->
+              <a href="https://github.com/diiegodm" target="_blank">
+                  <svg class="w-6 h-6 text-gray-500 hover:text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.478 2 12c0 4.418 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.009-.868-.014-1.704-2.782.603-3.369-1.34-3.369-1.34-.454-1.153-1.11-1.46-1.11-1.46-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.528 2.341 1.087 2.91.831.09-.647.35-1.087.637-1.337-2.221-.253-4.555-1.113-4.555-4.951 0-1.092.39-1.985 1.03-2.684-.103-.254-.447-1.277.097-2.66 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0 1 12 6.843c.85.004 1.705.115 2.504.337 1.908-1.295 2.747-1.026 2.747-1.026.546 1.383.202 2.406.1 2.66.641.7 1.03 1.592 1.03 2.684 0 3.848-2.337 4.695-4.564 4.943.36.31.678.923.678 1.86 0 1.34-.012 2.422-.012 2.75 0 .267.18.577.688.48A10.004 10.004 0 0 0 22 12c0-5.522-4.477-10-10-10z" clip-rule="evenodd"/>
+                  </svg>
+              </a>
+              <span><a href="https://github.com/diiegodm" target="_blank">GitHub</a></span>
+          </div>
+  
+          <div class="contact-item">
+              <!-- Icono Correo -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75M3.75 6l7.125 6.375a2.25 2.25 0 0 0 2.625 0L20.25 6"/>
+              </svg>
+              <span>diegoarevalodm#gmail.com</span>
+          </div>
+      </div>
+  </div>
+  
+   
+  </footer>
 
 </section>

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
@@ -10,7 +11,7 @@ interface Proyecto {
 
 @Component({
     selector: 'app-home',
-    imports: [MatDialogModule],
+    imports: [MatDialogModule,CommonModule],
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
@@ -110,6 +111,17 @@ prevImage() {
       this.currentImageIndex = (this.currentImageIndex - 1 + this.selectevent.imagenes.length) % this.selectevent.imagenes.length;
   }
 }
+
+menuOpen = false;
+
+toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+}
+
+closeMenu() {
+  this.menuOpen = false;
+}
+
 
 }
 
