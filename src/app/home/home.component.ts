@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 interface Proyecto {
     titulo: string;
@@ -12,7 +12,7 @@ interface Proyecto {
 
 @Component({
     selector: 'app-home',
-    imports: [MatDialogModule,CommonModule, ],
+    imports: [MatDialogModule,CommonModule,  ],
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
     standalone: true,
@@ -24,7 +24,23 @@ export class HomeComponent {
     public selectevent: Proyecto | null = null;
     public isOpen = false;
     public images: string[] = [];
-    currentImageIndex = 0;
+    public currentImageIndex = 0;
+
+
+
+    @HostListener('window:hashchange', ['$event'])
+    onHashChange() {
+      const id = window.location.hash.substring(1); // Obtiene el ID sin "#"
+      if (id) {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' }); // Hace scroll suave
+        }
+      }
+    }
+
+
+
 
 
    public proyectos = [
