@@ -92,8 +92,8 @@ export class HomeComponent {
           },
           {
             titulo: 'Inmobiliaria',
-            descripcion: 'Panel administrativo interactivo con gráficos y estadísticas.',
-         Tecnologias :'React, Chart.js.',
+            Descripción: 'Proyecto desarrollado con Angular, MySQL, HTML, Tailwind y Bootstrap, enfocado en la creación de una plataforma inmobiliaria dinámica y responsiva. Se implementó un diseño moderno y adaptable utilizando Tailwind y Bootstrap para garantizar una experiencia de usuario fluida en distintos dispositivos. Angular permitió una gestión eficiente de los componentes y la interacción con el usuario, mientras que MySQL se utilizó para la gestión y almacenamiento de datos de propiedades. La plataforma facilita la búsqueda, filtrado y visualización de inmuebles de manera intuitiva, demostrando la aplicación de tecnologías avanzadas y buenas prácticas en desarrollo web.',
+            Tecnologías: 'Angular, MySQL, HTML, Tailwind y Bootstrap.',
             imagenes: [
              'assets/inmobiliaria/Screenshot 2025-03-08 at 17-14-50 BienesRaices.png',
              'assets/inmobiliaria/Screenshot 2025-03-08 at 17-15-08 BienesRaices.png',
