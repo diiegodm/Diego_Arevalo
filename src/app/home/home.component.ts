@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+
 
 interface Proyecto {
     titulo: string;
