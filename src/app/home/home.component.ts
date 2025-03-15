@@ -81,7 +81,7 @@ export class HomeComponent {
         {
             titulo: 'gym',
             descripcion: 'Gym Management System es una aplicación web desarrollada para gestionar tanto la parte administrativa como la experiencia del usuario en un gimnasio. Este sistema cuenta con dos vistas principales: una para los administradores y otra para los usuarios. La vista de usuario permite gestionar la cuenta personal, ver entrenamientos disponibles, programar sesiones y consultar el historial de actividades realizadas. Por otro lado, la vista de administrador ofrece herramientas para gestionar usuarios, actualizar los datos del gimnasio y monitorizar las actividades de los miembros. El sistema incluye un CRUD completo (Crear, Leer, Actualizar, Eliminar) para usuarios y entrenamientos, lo que facilita la administración de todos los datos. No se ha utilizado ningún framework de diseño como Bootstrap; todo el diseño fue creado utilizando CSS para ofrecer una interfaz completamente personalizada. Además, el sistema está respaldado por una base de datos MongoDB, que garantiza la escalabilidad y el almacenamiento eficiente de los datos..',
-         Tecnologias: 'angular,mongoDB,css,html,node.js .',
+         Tecnologias: 'angular, mongoDB, css, html, node.js .',
             imagenes: [
              'assets/gym/Screenshot 2025-03-08 at 16-51-48 LoginPwass.png',
              'assets/gym/Screenshot 2025-03-08 at 16-52-08 LoginPwass.png',
@@ -93,7 +93,7 @@ export class HomeComponent {
           {
             titulo: 'Inmobiliaria',
             descripcion: 'Proyecto desarrollado con Angular, MySQL, HTML, Tailwind y Bootstrap, enfocado en la creación de una plataforma inmobiliaria dinámica y responsiva. Se implementó un diseño moderno y adaptable utilizando Tailwind y Bootstrap para garantizar una experiencia de usuario fluida en distintos dispositivos. Angular permitió una gestión eficiente de los componentes y la interacción con el usuario, mientras que MySQL se utilizó para la gestión y almacenamiento de datos de propiedades. La plataforma facilita la búsqueda, filtrado y visualización de inmuebles de manera intuitiva, demostrando la aplicación de tecnologías avanzadas y buenas prácticas en desarrollo web.',
-         Tecnologias :'React, Chart.js.',
+         Tecnologias :'angular, mysql, html, tailwind, bootstrap.',
             imagenes: [
              'assets/inmobiliaria/Screenshot 2025-03-08 at 17-14-50 BienesRaices.png',
              'assets/inmobiliaria/Screenshot 2025-03-08 at 17-15-08 BienesRaices.png',
